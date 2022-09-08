@@ -10,13 +10,23 @@ const app = express();
 const checkJwt = jwt({ secret: "yoursecret", algorithms: ["HS256"] });
 
 // Extract data from the JWT (check DB etc) and create the principal object to be sent to Cerbos
-const jwtToPrincipal = ({ sub, iat, roles = [], ...rest }) => {
+const jwtToPrincipal = ({ id, roles = [], ...rest }) => {
   return {
-    id: sub,
+    id: id,
     roles,
     attributes: rest,
   };
 };
+
+// Example JWT:
+// eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyMzQ1NjdVVUlEZnJvbWdyYXBoIiwibmFtZSI6IkNvbnJhZCIsImFjY291bnRfaWQiOiIqIiwiY29udGVudF90eXBlIjoiZGlnaXRhbF9hdWRpbyIsInJvbGVzIjpbIkNvbnRlbnRQcm9maWxlX2Rpc3RyaWJ1dGlvbl9yZXZpZXdlciJdfQ.ovu67X2OxYcYado6agdKdA6JbSCaw2F4upM06CLSH7w
+
+// Example output from jwtToPrincipal:
+// {
+//   id: '1234567UUIDfromgraph',
+//   roles: [ 'ContentProfile_distribution_reviewer' ],
+//   attributes: { name: 'Conrad', account_id: '*', content_type: 'digital_audio' }
+// }
 
 // READ
 app.get("/contacts/:id", checkJwt, async (req, res) => {

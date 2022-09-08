@@ -1,0 +1,8 @@
+# Cerbos example:
+curl -X GET 'http://localhost:3000/contacts' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwicm9sZXMiOlsiYWRtaW4iXSwiaWF0IjoxNTE2MjM5MDIyfQ.CQEEaSdswE2tou7MUeSe4-6kfe1imJXnbqhiMFsF13A'
+
+
+# Conrad example:
+curl -X GET 'http://localhost:3000/contacts' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyMzQ1NjdVVUlEZnJvbWdyYXBoIiwibmFtZSI6IkNvbnJhZCIsImFjY291bnRfaWQiOiIqIiwiY29udGVudF90eXBlIjoiZGlnaXRhbF9hdWRpbyIsInJvbGVzIjpbIkNvbnRlbnRQcm9maWxlX2Rpc3RyaWJ1dGlvbl9yZXZpZXdlciJdfQ.ovu67X2OxYcYado6agdKdA6JbSCaw2F4upM06CLSH7w'
